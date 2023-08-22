@@ -6,27 +6,44 @@ namespace Demo1.Controllers
 {
     public class StudentController : Controller
     {
-        public IActionResult Index()
+        ITIContext db = new ITIContext();
+
+        [HttpGet]
+        public IActionResult Create()
         {
             return View();
         }
 
-        public string Show()
-        {
-            return "Hello MVC";
+
+        [HttpPost]
+
+        public IActionResult Create(Student model) {
+
+            db.Students.Add(model);
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
-        public int Add()
+      
+
+      public IActionResult Index()
         {
-            return 20;
+            var model = db.Students.ToList();
+            return View(model);
+
         }
 
-        public ViewResult Details1() 
+        public IActionResult Details(int id)
         {
-            ITIContext context = new ITIContext();
+            Student student= db.Students.FirstOrDefault(a=>a.Id == id);
+            if (student == null)
+            return new NotFoundResult();
 
-            Student std = context.Students.FirstOrDefault(a => a.Id == 1); 
-            return View(std); 
+            return View(student);
         }
+
+
     }
 }

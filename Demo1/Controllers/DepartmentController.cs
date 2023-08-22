@@ -6,17 +6,40 @@ namespace Demo1.Controllers
 {
     public class DepartmentController : Controller
     {
+        ITIContext db = new ITIContext();
+
         public IActionResult Index()
+        {
+            var model = db.Departments.ToList();
+            return View(model);
+        }
+
+
+        [HttpGet]
+        public IActionResult Create()
         {
             return View();
         }
 
-        public ViewResult Details2() 
-        {
-            ITIContext context = new ITIContext();
+        [HttpPost]
 
-            Department department = context.Departments.FirstOrDefault(b => b.Id == 1);
-            return View(department); 
+        public IActionResult Create(Department model)
+        {
+
+            db.Departments.Add(model);
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Details(int id)
+        {
+            Department department = db.Departments.FirstOrDefault(a => a.Id == id);
+            if (department == null)
+                return new NotFoundResult();
+
+            return View(department);
         }
     }
 }
