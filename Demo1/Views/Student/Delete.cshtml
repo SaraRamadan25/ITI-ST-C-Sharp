@@ -1,0 +1,30 @@
+﻿@model Student
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Student Details</title>
+</head>
+<body>
+    <div>ARE YOU SURE YOU WAnT TO DELETE THE STUDENT
+    @Model.Id : @Model.Name  :  @Model.Age
+    </div>
+
+    <form method="post">
+        <input type="submit" value="Delete a student" />
+    </form>
+        <a href="/student"
+        class="btn btn-primary"> Back
+         </a>
+        
+    
+
+
+</body>
+</html>

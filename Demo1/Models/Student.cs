@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Demo1.Models
 {
@@ -10,9 +11,15 @@ namespace Demo1.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        [MaxLength(3)]
-        public string Age { get; set; }
+        [Range(10,25)]
+        public int Age { get; set; }
 
+        public int? DeptNo { get; set; }
 
+        [ForeignKey("DeptNo")]
+        public Department Department { get; set; }
+
+        [RegularExpression(@"[a-zA-Z0-9_]+@[A-Za-z]+.[a-zA-Z]{2,4}")]
+        public string Email { get; set; }
     }
 }

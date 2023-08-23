@@ -9,6 +9,12 @@ namespace Demo1.Models
         [Required]
         public string Name { get; set; }
 
+        public ICollection<Student> Students { get; set; }
+
+        public Department()
+        {
+            Students = new HashSet<Student>();
+        }
 
     }
 }

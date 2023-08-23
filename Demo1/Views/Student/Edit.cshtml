@@ -1,0 +1,21 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>create student</title>
+</head>
+<body>
+
+    <form method="post">
+        <label>Student Name</label> <input type="text" value="@Model.Name" name="Name" /> <br />
+        <label>Student Age</label> <input type="text" value="@Model.Age" name="Age" /> <br />
+        <input type="submit" value="add" />
+
+    </form>
+</body>
+</html>

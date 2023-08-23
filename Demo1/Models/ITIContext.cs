@@ -14,6 +14,6 @@ namespace Demo1.Models
 
         public virtual DbSet<Department> Departments { get; set; }
 
-     
+      
     }
 }
