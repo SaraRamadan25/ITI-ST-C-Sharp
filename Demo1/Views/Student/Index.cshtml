@@ -1,44 +1,34 @@
 ﻿@model IEnumerable<Student>
-
 @{
-    Layout = null;
+    Layout = "~/views/shared/_layout2.cshtml";
+    ViewBag.Title = "Student List";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index - All Students</title>
-</head>
-<body>
-    <a href="/student/create">Create student</a>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Department Name</th>
-                <th>Operations</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name</td>
-                    <td>@item.Age</td>
-                    <td>@item.Department?.Name</td>
-                    <td>
-                        <a href="/student/details/@item.Id">Details</a>
-                        <a href="/student/edit/@item.Id">Edit</a>
-                        <a href="/student/delete/@item.Id">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</body>
-</html>
+
+<a href="/student/create" class="btn btn-success">Create</a>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Department</th>
+            <th>Operation</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Age</td>
+            <td>@item.Department?.Name</td>
+            <td>
+                <a href="/student/details/@item.Id" class="btn btn-info">Details</a>
+                <a href="/student/edit/@item.Id" class="btn btn-warning">Edit</a>
+                <a href="/student/delete/@item.Id" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

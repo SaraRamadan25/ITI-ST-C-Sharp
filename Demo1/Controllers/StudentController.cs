@@ -7,7 +7,14 @@ namespace Demo1.Controllers
 {
     public class StudentController : Controller
     {
-        StudentBLL db = new StudentBLL();
+        //StudentBLL db = new StudentBLL();
+        //IStudent db = new StudentBLL();
+        IStudent db;
+
+        public StudentController(IStudent _db)
+        {
+            db = _db;
+        }
 
         [HttpGet]
         public IActionResult Create()
@@ -20,11 +27,16 @@ namespace Demo1.Controllers
         [HttpPost]
         public IActionResult Create(Student model)
         {
-            if(ModelState.IsValid)
-            db.Add(model);
-            return RedirectToAction("Index");
-        }
+            if (ModelState.IsValid)
+            {
+                db.Add(model);
+                return RedirectToAction("Index");
+            }
 
+            DepartmentBLL deptbll = new DepartmentBLL();
+            ViewBag.departments = deptbll.GetAll();
+            return View(model);
+                }
         public IActionResult Index()
         {
             var model = db.GetAll();

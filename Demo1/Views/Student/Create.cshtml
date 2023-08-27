@@ -1,28 +1,61 @@
-﻿
+﻿@model Student
 @{
     Layout = null;
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>create student</title>
+    <title>Create Student</title>
 </head>
 <body>
+    <form method="post">
+        <div>
+            <label for="Age">Student Age</label>
+            <input asp-for="Age" id="Age" />
+            <span asp-validation-for="Age"></span>
+        </div>
 
-    <form method="post"> 
-        <label>Student Name</label> <input type="text" name="Name" /> <br />
-        <label>Student Age</label> <input type="text" name="Age" /> <br />
-        <select name="DeptNo">
-            @foreach(var item in ViewBag.Departments)
-            {
-                <option value="@item.Id">@item.Name</option>
-            }
-        </select>
-        <input type="submit" value="add" />
+        <div>
+            <label for="Name">Student Name</label>
+            <input asp-for="Name" id="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
 
+        <div>
+            <label for="Email">Student Email</label>
+            <input asp-for="Email" id="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+
+        <div>
+            <label for="Password">Student Password</label>
+            <input asp-for="Password" id="Password" type="password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+
+        <div>
+            <label for="cpassword">Confirm Password</label>
+            <input asp-for="cpassword" id="cpassword" type="password" />
+            <span asp-validation-for="cpassword"></span>
+        </div>
+
+        <div>
+            <label for="DeptNo">Department</label>
+            <select asp-for="DeptNo" asp-items="@(new SelectList(ViewBag.Departments, "Id", "Name"))" id="DeptNo">
+                <option value="">Select Department</option>
+            </select>
+            <span asp-validation-for="DeptNo"></span>
+        </div>
+
+        <div>
+            <input type="submit" value="Add" />
+        </div>
     </form>
+
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 </body>
 </html>

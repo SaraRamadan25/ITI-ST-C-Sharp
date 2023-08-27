@@ -1,3 +1,5 @@
+using Demo1.BLL;
+
 namespace Demo1
 {
     public class Program
@@ -8,6 +10,8 @@ namespace Demo1
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddSingleton<IStudent, StudentBLL>();
 
             var app = builder.Build();
 

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Demo1.BLL
 {
-    public class StudentBLL
+    public class StudentBLL:IStudent
     {
         ITIContext db = new ITIContext();
 
