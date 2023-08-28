@@ -12,8 +12,13 @@ namespace Demo1
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddSingleton<IStudent, StudentBLL>();
-
+            builder.Services.AddSession();
             var app = builder.Build();
+
+            //app.Run(async context =>
+            //{
+            //    await context.Response.WriteAsync("Hello World !");
+            //});
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -27,6 +32,7 @@ namespace Demo1
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthorization();
 

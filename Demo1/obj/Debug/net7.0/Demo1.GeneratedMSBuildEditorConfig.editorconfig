@@ -16,6 +16,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\dell\source\repos\Demo1\Demo1
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/dell/source/repos/Demo1/Demo1/Views/Course/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dell/source/repos/Demo1/Demo1/Views/Course/Display.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXERpc3BsYXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/dell/source/repos/Demo1/Demo1/Views/Department/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
